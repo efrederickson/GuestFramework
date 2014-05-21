@@ -2,4 +2,5 @@
 
 mkdir -p $THEOS/include/libGuest
 cp libguest/LibGuest.h $THEOS/include/libGuest/LibGuest.h
+cp libguest/LGSettings.h $THEOS/include/libGuest/LGSettings.h
 cp libguest/.theos/obj/libGuest.dylib $THEOS/lib

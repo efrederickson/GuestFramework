@@ -1,6 +1,6 @@
 #import "LGLibPassDelegate.h"
-#import "LGSettings.h"
-#import "LibGuest.h"
+#import <LibGuest/LGSettings.h>
+#import <LibGuest/LibGuest.h>
 #import <LibPass/LibPass.h>
 
 #define SETTINGS [LGSettings sharedInstance]

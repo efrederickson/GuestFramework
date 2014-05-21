@@ -31,6 +31,8 @@
     // This loads settings, defaulting to YES if the key doesn't exist in the file
     self.enabled = [prefs objectForKey:@"enabled"] != nil ? [[prefs objectForKey:@"enabled"] boolValue] : YES;
     self.acceptAnyPassword = [prefs objectForKey:@"acceptAnyPassword"] != nil ? [[prefs objectForKey:@"acceptAnyPassword"] boolValue] : YES;
+    self.acceptCertainPassword = [prefs objectForKey:@"acceptCertainPassword"] != nil ? [[prefs objectForKey:@"acceptCertainPassword"] boolValue] : NO;
+    self.guestPasscode = [prefs objectForKey:@"guestPasscode"] != nil ? [prefs objectForKey:@"guestPasscode"] : @"1234";
 }
 
 -(BOOL) isPluginEnabled:(id<LGPlugin>)plugin

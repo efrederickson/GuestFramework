@@ -8,6 +8,9 @@ after-install::
 
 #core projects
 SUBPROJECTS += libguest
+SUBPROJECTS += libguestactivationmethods
+
+#preferences
 SUBPROJECTS += guestframeworksettings
 
 #plugins / samples / etc

@@ -1,13 +1,11 @@
 #import "LibGuest.h"
 #import <dlfcn.h>
-#import "LGLibPassDelegate.h"
 #import "LGSettings.h"
 
 @interface SBLockStateAggregator
 +(id)sharedInstance;
 -(void)_updateLockState;
 -(BOOL)hasAnyLockState;
--(unsigned)lockState;
 @end
 
 static void reloadSettings(CFNotificationCenterRef center,
@@ -33,8 +31,7 @@ static void reloadSettings(CFNotificationCenterRef center,
 %ctor
 {
     dlopen("/Library/MobileSubstrate/DynamicLibraries/libPass.dylib", RTLD_NOW | RTLD_GLOBAL);
-    [[LibPass sharedInstance] registerDelegate:[[LGLibPassDelegate alloc] init]];
-    
+
     [[LibGuest sharedInstance] loadPlugins];
 
     CFNotificationCenterRef r = CFNotificationCenterGetDarwinNotifyCenter();

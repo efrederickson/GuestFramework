@@ -11,12 +11,12 @@ TODO/Features:
 ==============
 
 Activation Methods:
-- Activator
+- Activator (Done)
 - Swipe Left 
 - Swipe Right (Past Passcode)
 - Guest Button (4 digit passcode)
-   - Button (below “Emergency” for advanced passcode)
-- Guest Passcode
+- Guest Button (below “Emergency” for advanced passcode)
+- Guest Passcode (Done)
    - Any incorrect passcode (done)
 
 

@@ -5,7 +5,7 @@ TARGET = iphone:clang:7.1:7.1
 include $(THEOS)/makefiles/common.mk
 
 TWEAK_NAME = libGuest
-libGuest_FILES = LGSettings.m Tweak.xm LibGuest.m LGLibPassDelegate.m
+libGuest_FILES = LGSettings.m Tweak.xm LibGuest.m
 libGuest_LIBRARIES = Pass
 
 include $(THEOS_MAKE_PATH)/tweak.mk

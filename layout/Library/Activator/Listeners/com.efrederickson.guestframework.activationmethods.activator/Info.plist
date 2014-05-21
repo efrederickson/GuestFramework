@@ -1,0 +1,6 @@
+{
+    group = "Guest Framework";
+    title = "Start GuestFramework";
+    description = "Starts GuestFramework";
+    "compatible-modes" = ("springboard", "lockscreen", "application");
+}
