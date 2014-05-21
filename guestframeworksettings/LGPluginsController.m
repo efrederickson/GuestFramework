@@ -92,8 +92,8 @@
         controller.parentController = self;	
         
         [self pushController:controller];
-        [tableView deselectRowAtIndexPath:indexPath animated:true];
     }
+    [tableView deselectRowAtIndexPath:indexPath animated:true];
 }
 @end
 
