@@ -1,12 +1,6 @@
 #import <LibGuest/LibGuest.h>
 #import <UIKit/UIScrollView.h>
 
-@interface SBSearchScrollView : UIScrollView
--(BOOL)gestureRecognizerShouldBegin:(id)arg1 ;
--(BOOL)_canScrollY;
-@end
-
-SBSearchScrollView *search;
 BOOL active = NO;
 
 @interface SpotlightPluginPlugin : NSObject <LGPlugin>
@@ -16,13 +10,11 @@ BOOL active = NO;
 
 -(void) activate
 {
-    [search setScrollEnabled:NO];
     active = YES;
 }
 
 -(void) deactivate
 {
-    [search setScrollEnabled:YES];
     active = NO;
 }
 
@@ -34,7 +26,6 @@ BOOL active = NO;
 {
     return @"Elijah Frederickson";
 }
-
 -(NSString*)uniqueIdentifier
 {
     return @"com.efrederickson.guestframework.plugins.spotlight";
@@ -43,12 +34,6 @@ BOOL active = NO;
 @end
 
 %hook SBSearchScrollView
--(id) init
-{
-    id x = %orig;
-    search = x;
-    return x;
-}
 -(BOOL)gestureRecognizerShouldBegin:(id)arg1
 {
     if (active)
