@@ -3,6 +3,12 @@
 #import <LibGuest/LibGuest.h>
 #import <Preferences/Preferences.h>
 #import <objc/runtime.h>
+#import "LGPluginSettingsPanel.h"
+#import "LGPluginSubPanel.h"
+
+@interface PSViewController (LibGuest)
+-(UINavigationController*)navigationController;
+@end
 
 @implementation LGPluginsController
 -(id) initForContentSize:(CGSize)size
@@ -20,7 +26,7 @@
     [_tableView setDataSource:self];
     [_tableView setDelegate:self];
     [_tableView setEditing:NO];
-    [_tableView setAllowsSelection:NO];
+    [_tableView setAllowsSelection:YES];
     
     if ([self respondsToSelector:@selector(setView:)])
         [self performSelectorOnMainThread:@selector(setView:) withObject:_tableView waitUntilDone:YES];
@@ -43,18 +49,51 @@
 
 -(id)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    LGSwitchCell *cell = (LGSwitchCell*)[tableView dequeueReusableCellWithIdentifier:@"PluginCell"];
-    if (!cell)
-    {
-        cell = [[LGSwitchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"PluginCell"];
-    }
+    id cell = [tableView dequeueReusableCellWithIdentifier:@"PluginCell"];
     
     id<LGPlugin> plugin = [[LibGuest sharedInstance]->delegates objectAtIndex:[indexPath row]];
-    cell.plugin = plugin;
-    cell.textLabel.text = [plugin pluginName];
-    [cell checkValue];
+    if ([plugin respondsToSelector:@selector(preferenceSpecifiers)] && plugin.preferenceSpecifiers != nil)
+    {
+        if (!cell)
+            cell = [[LGPluginSettingsPanel alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"PluginCell"];
+        ((LGPluginSettingsPanel*)cell).plugin = plugin;
+        ((LGPluginSettingsPanel*)cell).textLabel.text = [plugin pluginName];
+    }
+    else
+    {
+        if (!cell)
+        {
+            cell = [[LGSwitchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"PluginCell"];
+        }
+        ((LGSwitchCell*)cell).plugin = plugin;
+        ((LGSwitchCell*)cell).textLabel.text = [plugin pluginName];
+        [((LGSwitchCell*)cell) checkValue];
+    }
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    id cell = [tableView cellForRowAtIndexPath:indexPath];
+    id<LGPlugin> plugin = [[LibGuest sharedInstance]->delegates objectAtIndex:[indexPath row]];
+    if ([cell isKindOfClass:[LGPluginSettingsPanel class]])
+    {
+        //id pSpecs = [plugin preferenceSpecifiers];
+        
+        //UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
+        
+        // Need to mimic what PSListController does when it handles didSelectRowAtIndexPath
+        // otherwise the child controller won't load
+        LGPluginSubPanel* controller = [[LGPluginSubPanel alloc]
+                                        initWithPlugin:plugin];
+        
+        controller.rootController = self.rootController;
+        controller.parentController = self;	
+        
+        [self pushController:controller];
+        [tableView deselectRowAtIndexPath:indexPath animated:true];
+    }
 }
 @end
 

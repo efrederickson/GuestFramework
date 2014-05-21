@@ -5,7 +5,7 @@ TARGET = iphone:clang:7.1:7.1
 include $(THEOS)/makefiles/common.mk
 
 BUNDLE_NAME = GuestFrameworkSettings
-GuestFrameworkSettings_FILES = GuestFrameworkSettings.mm LGPluginsController.m LGHeaderCell.m LGSwitchCell.m
+GuestFrameworkSettings_FILES = GuestFrameworkSettings.mm LGPluginsController.m LGPluginSettingsPanel.m LGHeaderCell.m LGSwitchCell.m LGPluginSubPanel.m
 GuestFrameworkSettings_INSTALL_PATH = /Library/PreferenceBundles
 GuestFrameworkSettings_FRAMEWORKS = UIKit CoreGraphics Foundation
 GuestFrameworkSettings_PRIVATE_FRAMEWORKS = Preferences

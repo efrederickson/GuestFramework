@@ -3,10 +3,10 @@
 
 BOOL active = NO;
 
-@interface SpotlightPluginPlugin : NSObject <LGPlugin>
+@interface SpotlightPlugin : NSObject <LGPlugin>
 @end
 
-@implementation SpotlightPluginPlugin
+@implementation SpotlightPlugin
 
 -(void) activate
 {

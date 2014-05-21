@@ -17,14 +17,14 @@
 
 -(NSString*) pluginName
 {
-    return @"@@@PROJECTNAME@@";
+    return @"@@PROJECTNAME@@";
 }
 -(NSString*) author
 {
     return @"@@USER@@";
 }
 
-(NSString*)uniqueIdentifier
+-(NSString*)uniqueIdentifier
 {
     return @"@@PACKAGENAME@@";
 }

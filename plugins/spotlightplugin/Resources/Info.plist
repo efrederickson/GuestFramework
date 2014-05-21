@@ -27,6 +27,6 @@
 	<key>LSApplicationCategoryType</key>
 	<string></string>
 	<key>NSPrincipalClass</key>
-	<string>SpotlightPluginPlugin</string>
+	<string>SpotlightPlugin</string>
 </dict>
 </plist>

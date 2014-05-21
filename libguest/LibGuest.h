@@ -7,6 +7,9 @@
 -(NSString*) pluginName;
 -(NSString*) author;
 -(NSString*) uniqueIdentifier;
+
+@optional
+-(id) preferenceSpecifiers;
 @end
 
 @interface LibGuest : NSObject
