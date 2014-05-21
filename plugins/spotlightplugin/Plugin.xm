@@ -7,6 +7,7 @@
 @end
 
 SBSearchScrollView *search;
+BOOL active = NO;
 
 @interface SpotlightPluginPlugin : NSObject <LGPlugin>
 @end
@@ -16,11 +17,13 @@ SBSearchScrollView *search;
 -(void) activate
 {
     [search setScrollEnabled:NO];
+    active = YES;
 }
 
 -(void) deactivate
 {
     [search setScrollEnabled:YES];
+    active = NO;
 }
 
 -(NSString*) pluginName
@@ -45,5 +48,11 @@ SBSearchScrollView *search;
     id x = %orig;
     search = x;
     return x;
+}
+-(BOOL)gestureRecognizerShouldBegin:(id)arg1
+{
+    if (active)
+        return NO;
+    return %orig;
 }
 %end
