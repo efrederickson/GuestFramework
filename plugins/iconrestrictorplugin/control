@@ -1,0 +1,9 @@
+Package: com.efrederickson.guestframework.plugins.iconrestrictor
+Name: IconRestrictorPlugin
+Depends: mobilesubstrate, com.efrederickson.guestframework
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: A simple plugin for GuestFramework
+Maintainer: Elijah Frederickson
+Author: Elijah Frederickson
+Section: Addons (GuestFramework)
