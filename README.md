@@ -10,7 +10,7 @@ Built upon LibPass
 TODO/Features:
 ==============
 
-- Activation Methods:
+Activation Methods:
 - Activator
 - Swipe Left 
 - Swipe Right (Past Passcode)
