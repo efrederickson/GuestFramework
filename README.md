@@ -8,9 +8,9 @@ Also includes a THEOS NIC template and sample plugin.
 Built upon LibPass
 
 TODO/Features:
-
-Activation Methods
 ==============
+
+Activation Methods:
 Activator
 Swipe Left 
 Swipe Right (Past Passcode)
@@ -20,8 +20,7 @@ Guest Passcode
   Any incorrect passcode (done)
 
 
-Features/Plugins
-==============
+Features/Plugins:
 Disable LockScreen camera (always)
 Dim disabled apps
 Notification Center
