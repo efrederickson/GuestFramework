@@ -1,3 +1,6 @@
+ARCHS = armv7 armv7s arm64
+CFLAGS = -fobjc-arc
+
 include $(THEOS)/makefiles/common.mk
 
 BUNDLE_NAME = SpotlightPlugin

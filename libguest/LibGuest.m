@@ -101,6 +101,9 @@
 
 -(void) activate
 {
+    if ([LGSettings sharedInstance].enabled == NO)
+        return;
+        
     [[LibPass sharedInstance] unlockWithCodeEnabled:NO];
     for (id plugin in delegates)
     {
