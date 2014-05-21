@@ -15,7 +15,7 @@ TODO/Features:
 - Swipe Left 
 - Swipe Right (Past Passcode)
 - Guest Button (4 digit passcode)
-   A. Button (below “Emergency” for advanced passcode)
+   - Button (below “Emergency” for advanced passcode)
 - Guest Passcode
    - Any incorrect passcode (done)
 
@@ -26,8 +26,8 @@ Features/Plugins:
 - Notification Center
 - Control Center
 - App Switcher 
- A. closing apps
- B. blur disabled apps
+  - closing apps
+  - blur disabled apps
 - Spotlight (done)
 - Safari tab
 - Phone dialer tab only
