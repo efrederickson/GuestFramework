@@ -1,0 +1,9 @@
+Package: com.efrederickson.guestframework.sample_plugin
+Name: Sample Plugin for GuestFramework
+Depends: mobilesubstrate, com.efrederickson.guestframework
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: A simple plugin for GuestFramework
+Maintainer: efrederickson
+Author: efrederickson
+Section: Addons (GuestFramework)

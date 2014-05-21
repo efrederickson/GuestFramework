@@ -1,0 +1,9 @@
+Package: com.efrederickson.guestframework
+Name: GuestFramework
+Depends: mobilesubstrate, com.bd452.libpass
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: Guest Mode framework
+Maintainer: Elijah Frederickson
+Author: Elijah Frederickson
+Section: Tweaks

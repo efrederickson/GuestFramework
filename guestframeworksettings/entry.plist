@@ -1,0 +1,10 @@
+{
+	entry = {
+		bundle = "GuestFrameworkSettings";
+		cell = PSLinkCell;
+		detail = "GuestFrameworkSettingsListController";
+		icon = "GuestFrameworkSettings.png";
+		isController = 1;
+		label = "Guest Framework";
+	};
+}

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+mkdir -p $THEOS/include/libGuest
+cp libguest/LibGuest.h $THEOS/include/libGuest/LibGuest.h
+cp libguest/.theos/obj/libGuest.dylib $THEOS/lib

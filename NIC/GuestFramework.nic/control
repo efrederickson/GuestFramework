@@ -1,0 +1,9 @@
+Package: @@PACKAGENAME@@
+Name: @@FULLPROJECTNAME@@
+Depends: mobilesubstrate, com.efrederickson.guestframework
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: A simple plugin for GuestFramework
+Maintainer: @@USER@@
+Author: @@USER@@
+Section: Addons (GuestFramework)
