@@ -10,7 +10,7 @@ Built upon LibPass
 TODO/Features:
 
 Activation Methods
-——————————————————
+==============
 Activator
 Swipe Left 
 Swipe Right (Past Passcode)
@@ -21,7 +21,7 @@ Guest Passcode
 
 
 Features/Plugins
-————————————————
+==============
 Disable LockScreen camera (always)
 Dim disabled apps
 Notification Center
