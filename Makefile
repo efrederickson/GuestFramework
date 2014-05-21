@@ -12,5 +12,6 @@ SUBPROJECTS += guestframeworksettings
 
 #plugins / samples / etc
 SUBPROJECTS += plugins/sample_plugin
+SUBPROJECTS += plugins/spotlightplugin
 
 include $(THEOS_MAKE_PATH)/aggregate.mk

@@ -1,0 +1,9 @@
+Package: com.efrederickson.guestframework.plugins.spotlight
+Name: SpotlightPlugin
+Depends: mobilesubstrate, com.efrederickson.guestframework
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: Spotlight plugin for GuestFramework
+Maintainer: Elijah Frederickson
+Author: Elijah Frederickson
+Section: Addons (GuestFramework)
