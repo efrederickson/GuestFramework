@@ -1,1 +1,2 @@
-tar -cvf $THEOS/templates/iphone/guestframework_plugin.nic.tar GuestFramework.nic/*
+cd GuestFramework.nic
+tar -cvf $THEOS/templates/iphone/guestframework_plugin.nic.tar *
