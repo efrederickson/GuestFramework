@@ -70,7 +70,7 @@
 	if (pluginClass) {
 		id<LGPlugin> actualPlugin = [pluginClass instancesRespondToSelector:@selector(initWithBundle:)] ? [[pluginClass alloc] initWithBundle:bundle] : [[pluginClass alloc] init];
 		if (actualPlugin) {
-            NSLog(@"GuestFramework: successfully loaded plugin %@", [actualPlugin pluginName]);
+            //NSLog(@"GuestFramework: successfully loaded plugin %@", [actualPlugin pluginName]);
 			[self registerPlugin:actualPlugin];
 		}
 	}
