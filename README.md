@@ -30,7 +30,7 @@ Features/Plugins:
   - closing apps (Done)
   - blur disabled apps (Done)
 - Spotlight (Done)
-- Safari tab
+- (Single) Safari tab
 - Phone dialer tab only (Done)
 - Siri
 - NewsStand
