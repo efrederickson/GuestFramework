@@ -24,13 +24,13 @@ Features/Plugins:
 - Disable LockScreen camera (always)
 - Dim disabled apps
 - Notification Center
-- Control Center
-- App Switcher 
-  - closing apps
-  - blur disabled apps
-- Spotlight (done)
+- Control Center (Done)
+- App Switcher (Done)
+  - closing apps (Done)
+  - blur disabled apps (Done)
+- Spotlight (Done)
 - Safari tab
-- Phone dialer tab only
+- Phone dialer tab only (Done)
 - Siri
 - NewsStand
 - Single app (preselected app or previous current app)

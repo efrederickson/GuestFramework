@@ -5,7 +5,7 @@ TARGET = iphone:clang:7.1:7.1
 include $(THEOS)/makefiles/common.mk
 
 BUNDLE_NAME = @@PROJECTNAME@@
-@@PROJECTNAME@@_FILES = Plugin.m
+@@PROJECTNAME@@_FILES = Plugin.xm
 @@PROJECTNAME@@_FRAMEWORKS = UIKit
 @@PROJECTNAME@@_LIBRARIES = guest substrate
 @@PROJECTNAME@@_INSTALL_PATH = /Library/GuestFramework/Plugins

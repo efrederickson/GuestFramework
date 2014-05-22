@@ -30,7 +30,7 @@ BOOL active = NO;
 
 -(NSString*) pluginName
 {
-    return @"Icon Restrictor";
+    return @"App Restrictor";
 }
 -(NSString*) author
 {

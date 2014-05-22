@@ -1,6 +1,7 @@
 #import "LGPluginSubPanel.h"
 #import <Preferences/Preferences.h>
 #import <LibGuest/LibGuest.h>
+#import <notify.h>
 
 @interface PSListController (LibGuest)
 -(void)viewDidLoad;
@@ -48,6 +49,7 @@
         [[LibGuest sharedInstance] enablePlugin:plugin];
     else
         [[LibGuest sharedInstance] disablePlugin:plugin];
+    notify_post("com.efrederickson.guestframework/reloadSettings");
 }
 
 -(NSNumber*) getValue:(PSSpecifier*)sender

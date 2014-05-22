@@ -1,4 +1,5 @@
 #import "LGSwitchCell.h"
+#import <notify.h>
 
 @implementation LGSwitchCell
 @synthesize switchView;
@@ -25,6 +26,7 @@
         [[LibGuest sharedInstance] enablePlugin:self.plugin];
     else
         [[LibGuest sharedInstance] disablePlugin:self.plugin];
+    notify_post("com.efrederickson.guestframework/reloadSettings");
 }
 
 @end

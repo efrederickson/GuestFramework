@@ -1,5 +1,5 @@
-Package: com.efrederickson.guestframework.plugins.iconrestrictor
-Name: IconRestrictorPlugin
+Package: com.efrederickson.guestframework.plugins.appswitcher
+Name: AppSwitcher
 Depends: mobilesubstrate, com.efrederickson.guestframework
 Version: 0.0.1
 Architecture: iphoneos-arm

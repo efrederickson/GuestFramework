@@ -1,5 +1,7 @@
 #import <LibGuest/LibGuest.h>
 
+BOOL active = NO;
+
 @interface @@PROJECTNAME@@Plugin : NSObject <LGPlugin>
 @end
 
@@ -7,12 +9,12 @@
 
 -(void) activate
 {
-    
+    active = YES;
 }
 
 -(void) deactivate
 {
-    
+    active = NO;
 }
 
 -(NSString*) pluginName
@@ -30,3 +32,6 @@
 }
 
 @end
+
+// Put your theos hooks here
+

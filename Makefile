@@ -3,8 +3,8 @@ THEOS_PACKAGE_DIR_NAME = debs
 
 include $(THEOS)/makefiles/common.mk
 
-after-install::
-	install.exec "killall -9 SpringBoard"
+#after-install::
+#	install.exec "killall -9 SpringBoard"
 
 #core projects
 SUBPROJECTS += libguest
@@ -17,5 +17,10 @@ SUBPROJECTS += guestframeworksettings
 SUBPROJECTS += plugins/sample_plugin
 SUBPROJECTS += plugins/spotlightplugin
 SUBPROJECTS += plugins/iconrestrictorplugin
+SUBPROJECTS += plugins/notificationcenter
+SUBPROJECTS += plugins/controlcenter
+SUBPROJECTS += plugins/appswitcher
+SUBPROJECTS += plugins/phoneplugin/lgphoneapphelper
+SUBPROJECTS += plugins/phoneplugin/mobilephone
 
 include $(THEOS_MAKE_PATH)/aggregate.mk
