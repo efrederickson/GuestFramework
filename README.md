@@ -32,6 +32,6 @@ Features/Plugins:
 - Spotlight (Done)
 - (Single) Safari tab
 - Phone dialer tab only (Done)
-- Siri
+- Siri (Done)
 - NewsStand (Done)
 - Single app (preselected app or previous current app)
