@@ -22,5 +22,6 @@ SUBPROJECTS += plugins/controlcenter
 SUBPROJECTS += plugins/appswitcher
 SUBPROJECTS += plugins/phoneplugin/lgphoneapphelper
 SUBPROJECTS += plugins/phoneplugin/mobilephone
+SUBPROJECTS += plugins/newsstand
 
 include $(THEOS_MAKE_PATH)/aggregate.mk

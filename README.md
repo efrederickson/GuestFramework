@@ -33,5 +33,5 @@ Features/Plugins:
 - (Single) Safari tab
 - Phone dialer tab only (Done)
 - Siri
-- NewsStand
+- NewsStand (Done)
 - Single app (preselected app or previous current app)
