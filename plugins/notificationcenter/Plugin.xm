@@ -32,3 +32,13 @@ BOOL active = NO;
 }
 
 @end
+
+%hook SBUIController
+-(void)handleShowNotificationsSystemGesture:(id)gesture
+{
+    if (active)
+        return;
+        
+    %orig;
+}
+%end

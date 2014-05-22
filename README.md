@@ -24,7 +24,7 @@ Features/Plugins:
 - Disable LockScreen camera (always)
 - Disable apps using whitelist for enabled (Done)
   - Dim disabled apps
-- Notification Center
+- Notification Center (Done)
 - Control Center (Done)
 - App Switcher (Done)
   - closing apps (Done)
