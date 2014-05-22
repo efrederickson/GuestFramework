@@ -22,7 +22,8 @@ Activation Methods:
 
 Features/Plugins:
 - Disable LockScreen camera (always)
-- Dim disabled apps
+- Disable apps using whitelist for enabled (Done)
+  - Dim disabled apps
 - Notification Center
 - Control Center (Done)
 - App Switcher (Done)
