@@ -1,40 +1,46 @@
-#import "LGPluginsController.h"
+#import "LGPluginsController2.h"
 #import "LGSwitchCell.h"
 #import <LibGuest/LibGuest.h>
 #import <Preferences/Preferences.h>
 #import <objc/runtime.h>
 #import "LGPluginSettingsPanel.h"
 #import "LGPluginSubPanel.h"
+#import "GuestFrameworkSettings.h"
 
 @interface PSViewController (LibGuest)
 -(UINavigationController*)navigationController;
 @end
+@interface PSTableCell (LibGuest)
+@property (nonatomic, retain) UIView *backgroundView;
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier specifier:(PSSpecifier *)specifier;
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
+@end
 
-@implementation LGPluginsController
--(id) initForContentSize:(CGSize)size
+@implementation LGPluginsController2
+-(void)layoutSubviews
 {
-	if ((self = [super initForContentSize:size]))
-    {
-        [self initTableView:size];
-	}
-	return self;
-}
-
--(void) initTableView:(CGSize)size
-{
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height) style:UITableViewStyleGrouped];
+    _tableView = [[UITableView alloc] initWithFrame:self.frame style:UITableViewStyleGrouped];
     [_tableView setDataSource:self];
     [_tableView setDelegate:self];
     [_tableView setEditing:NO];
     [_tableView setAllowsSelection:YES];
+    _tableView.scrollEnabled = NO;
+    
+    _tableView.frame = CGRectMake(0, 0, [self frame].size.width, [self frame].size.height);
     
     if ([self respondsToSelector:@selector(setView:)])
         [self performSelectorOnMainThread:@selector(setView:) withObject:_tableView waitUntilDone:YES];
+    
+    [self addSubview:_tableView];
+    
 }
 
-- (id)view
+- (void)resizeTableViewFrameHeight
 {
-    return _tableView;
+    UITableView *tableView = _tableView;
+    CGRect frame = tableView.frame;
+    frame.size.height = [tableView sizeThatFits:CGSizeMake(frame.size.width, HUGE_VALF)].height;
+    tableView.frame = frame;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -70,6 +76,12 @@
         [((LGSwitchCell*)cell) checkValue];
     }
     
+    if([indexPath row] == ((NSIndexPath*)[[tableView indexPathsForVisibleRows] lastObject]).row)
+    {
+        [self resizeTableViewFrameHeight];
+        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, _tableView.frame.size.width, _tableView.frame.size.height);
+    }
+    
     return cell;
 }
 
@@ -79,20 +91,19 @@
     id<LGPlugin> plugin = [[LibGuest sharedInstance]->delegates objectAtIndex:[indexPath row]];
     if ([cell isKindOfClass:[LGPluginSettingsPanel class]])
     {
-        //id pSpecs = [plugin preferenceSpecifiers];
-        
-        //UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
+        GuestFrameworkSettingsListController *parent = [GuestFrameworkSettingsListController sharedController];
         
         // Need to mimic what PSListController does when it handles didSelectRowAtIndexPath
         // otherwise the child controller won't load
         LGPluginSubPanel* controller = [[LGPluginSubPanel alloc]
                                         initWithPlugin:plugin];
         
-        controller.rootController = self.rootController;
-        controller.parentController = self;	
+        controller.rootController = parent.rootController;
+        controller.parentController = parent;
         
-        [self pushController:controller];
+        [parent pushController:controller];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:true];
 }
+
 @end

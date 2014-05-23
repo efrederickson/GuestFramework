@@ -3,8 +3,8 @@ THEOS_PACKAGE_DIR_NAME = debs
 
 include $(THEOS)/makefiles/common.mk
 
-after-install::
-	install.exec "killall -9 SpringBoard"
+#after-install::
+#	install.exec "killall -9 SpringBoard"
 
 #core projects
 SUBPROJECTS += libguest
