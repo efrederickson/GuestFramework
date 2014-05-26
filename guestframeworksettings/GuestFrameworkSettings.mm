@@ -1,8 +1,14 @@
 #import <Preferences/Preferences.h>
 #import <objc/runtime.h>
 #import "GuestFrameworkSettings.h"
+#import <LibGuest/LibGuest.h>
+
+@interface PSListController (LibGuest)
+-(void)viewDidLoad;
+@end
 
 static GuestFrameworkSettingsListController *sharedController;
+PSSpecifier *pluginCell;
 
 @implementation GuestFrameworkSettingsListController
 
@@ -21,52 +27,14 @@ static GuestFrameworkSettingsListController *sharedController;
 	if(_specifiers == nil) {
 		_specifiers = [self loadSpecifiersFromPlistName:@"GuestFrameworkSettings" target:self];
         [self localizedSpecifiersWithSpecifiers:_specifiers];
-    }
-	return _specifiers;
-}
-- (id)navigationTitle {
-	return [[self bundle] localizedStringForKey:[super title] value:[super title] table:nil];
-}
-
-- (id)localizedSpecifiersWithSpecifiers:(NSArray *)specifiers {
-    
-    NSLog(@"localizedSpecifiersWithSpecifiers");
-	for(PSSpecifier *curSpec in specifiers) {
-		NSString *name = [curSpec name];
-		if(name) {
-			[curSpec setName:[[self bundle] localizedStringForKey:name value:name table:nil]];
-		}
-		NSString *footerText = [curSpec propertyForKey:@"footerText"];
-		if(footerText)
-			[curSpec setProperty:[[self bundle] localizedStringForKey:footerText value:footerText table:nil] forKey:@"footerText"];
-		id titleDict = [curSpec titleDictionary];
-		if(titleDict) {
-			NSMutableDictionary *newTitles = [[NSMutableDictionary alloc] init];
-			for(NSString *key in titleDict) {
-				NSString *value = [titleDict objectForKey:key];
-				[newTitles setObject:[[self bundle] localizedStringForKey:value value:value table:nil] forKey: key];
-			}
-			[curSpec setTitleDictionary:newTitles];
-		}
-	}
-	return specifiers;
-}
-@end
-
-@interface LGActivationMethodsController : PSListController
-@end
-
-@implementation LGActivationMethodsController
-- (id)specifiers {
-	if(_specifiers == nil) {
-		_specifiers = [self loadSpecifiersFromPlistName:@"ActivationMethods" target:self];
-        [self localizedSpecifiersWithSpecifiers:_specifiers];
         
-        PSSpecifier *spec = [PSSpecifier preferenceSpecifierNamed:@"" target:nil set:nil get:nil detail:nil cell:PSStaticTextCell edit:nil];
-        int height = ((PSTableCell*)[[self specifiers] objectAtIndex:[self specifiers].count - 1]).frame.size.height;
-        height = 1000;
-        [spec setUserInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:height] forKey:@"height"]];
-        [(NSMutableArray*)_specifiers addObject:spec];
+        for (PSSpecifier *specifier in _specifiers) {
+            if ([[specifier identifier] isEqualToString:@"Plugins"])
+            {
+                [specifier setProperty:[NSNumber numberWithInteger:52*[[LibGuest sharedInstance]->delegates count] ] forKey:@"height"];
+                pluginCell = specifier;
+            }
+        }
     }
 	return _specifiers;
 }
@@ -75,8 +43,6 @@ static GuestFrameworkSettingsListController *sharedController;
 }
 
 - (id)localizedSpecifiersWithSpecifiers:(NSArray *)specifiers {
-    
-    NSLog(@"localizedSpecifiersWithSpecifiers");
 	for(PSSpecifier *curSpec in specifiers) {
 		NSString *name = [curSpec name];
 		if(name) {
@@ -98,6 +64,11 @@ static GuestFrameworkSettingsListController *sharedController;
 	return specifiers;
 }
 
+-(void) setPluginCellHeight:(CGFloat)height
+{
+    NSLog(@"pluginCell %d", (int)height);
+    [pluginCell setProperty:[NSNumber numberWithFloat:height] forKey:@"height"];
+}
 @end
 
 #define WBSAddMethod(_class, _sel, _imp, _type) \

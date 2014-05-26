@@ -17,6 +17,7 @@
 @end
 
 @implementation LGPluginsController2
+
 -(void)layoutSubviews
 {
     _tableView = [[UITableView alloc] initWithFrame:self.frame style:UITableViewStyleGrouped];
@@ -80,6 +81,7 @@
     {
         [self resizeTableViewFrameHeight];
         self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, _tableView.frame.size.width, _tableView.frame.size.height);
+        [[GuestFrameworkSettingsListController sharedController] setPluginCellHeight:_tableView.frame.size.height];
     }
     
     return cell;

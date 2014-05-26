@@ -31,20 +31,57 @@
 			<key>PostNotification</key>
 			<string>com.efrederickson.guestframework/reloadSettings</string>
 		</dict>
-		<dict>
-			<key>cell</key>
-			<string>PSLinkCell</string>
-			<key>detail</key>
-			<string>LGActivationMethodsController</string>
-			<key>label</key>
-			<string>Activation Methods</string>
-		</dict>
 
 		<dict>
 			<key>cell</key>
 			<string>PSStaticTextCell</string>
 			<key>cellClass</key>
 			<string>LGPluginsController2</string>
+			<key>label</key>
+			<string>Plugins</string>
+		</dict>
+
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.efrederickson.guestframework</string>
+			<key>key</key>
+			<string>acceptCertainPassword</string>
+			<key>label</key>
+			<string>Guest Passcode</string>
+			<key>PostNotification</key>
+			<string>com.efrederickson.guestframework/reloadSettings</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSEditTextCell</string>
+			<key>default</key>
+			<string>1234</string>
+			<key>defaults</key>
+			<string>com.efrederickson.guestframework</string>
+			<key>key</key>
+			<string>guestPasscode</string>
+			<key>label</key>
+			<string>Passcode: </string>
+			<key>PostNotification</key>
+			<string>com.efrederickson.guestframework/reloadSettings</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>com.efrederickson.guestframework</string>
+			<key>key</key>
+			<string>acceptAnyPassword</string>
+			<key>label</key>
+			<string>Any incorrect passcode</string>
+			<key>PostNotification</key>
+			<string>com.efrederickson.guestframework/reloadSettings</string>
 		</dict>
 	</array>
 	<key>title</key>
